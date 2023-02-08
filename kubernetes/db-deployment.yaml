@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: db-deployment
   namespace: ajohnson
   labels:
-    app: app
+    app: db
 spec:
   replicas: 1
   strategy:
@@ -12,17 +12,17 @@ spec:
   minReadySeconds: 20
   selector:
     matchLabels:
-      app: app
+      app: db
   template:
     metadata:
       labels:
-        app: app
+        app: db
     spec:
       containers:
       - envFrom:
         - secretRef:
             name: db-secret
-        name: app-deployment
-        image: harbor.dev.afsmtddso.com/ajohnson-harbor-project/app@sha256:db489bdb60c712b69355d4d20ec7c7d48e42e42bee1b5c3c5b40da2c82aadbd9
-        ports: 5000
+        name: db-deployment
+        image: harbor.dev.afsmtddso.com/ajohnson-harbor-project/db@sha256:f5a225d8a30316cf26325158ee35d234fee17c938e9fd6ca71a5c7c3a6a4fb5c
+        ports: 5432
         - containerPort: <CONTAINER PORT>
