@@ -24,5 +24,5 @@ spec:
             name: db-secret
         name: app-deployment
         image: harbor.dev.afsmtddso.com/ajohnson-harbor-project/app@sha256:db489bdb60c712b69355d4d20ec7c7d48e42e42bee1b5c3c5b40da2c82aadbd9
-        ports: 5000
-        - containerPort: <CONTAINER PORT>
+        ports: 
+        - containerPort: 5000
